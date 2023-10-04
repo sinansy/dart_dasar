@@ -1,26 +1,24 @@
 void main() {
+  // Anonymous function untuk mengubah teks menjadi huruf besar (uppercase)
   var upperFunction = (String name) {
     return name.toUpperCase();
   };
 
-var lowerFunction = (String name) => name.toLowerCase();
+  // Anonymous function untuk mengubah teks menjadi huruf kecil (lowercase)
+  var lowerFunction = (String name) => name.toLowerCase();
 
-print(upperFunction('Yasin'));
-print(lowerFunction('Yasin'));
+  // Menggunakan anonymous function untuk mengubah teks
+  print(upperFunction('Yasin')); // Output: YASIN
+  print(lowerFunction('Yasin')); // Output: yasin
+
+  // Memanggil fungsi sayHello dengan filter upperFunction
+  sayHello('Muhammad Yasin Ansyari', upperFunction); 
+
+  // Memanggil fungsi sayHello dengan filter lowerFunction
+  sayHello('Muhammad Yasin Ansyari', lowerFunction); 
 }
 
 void sayHello(String name, String Function(String) filter) {
   var filteredName = filter(name);
   print('Hi $filteredName');
-}
-void sayHello(String name, String Function(String) filter) {
-  var filteredName = filter(name);
-  print('Hi $filteredName');
-}
-
-void main (){
-  sayHello('Muhammad Yasin Ansyari'), (name){
-    return name.toUpperCase();
-  });
-  sayHello('Muhammad Yasin Ansyari', (String name) => name.toLowerCase());
 }
