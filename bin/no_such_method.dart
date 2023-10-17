@@ -1,11 +1,11 @@
+
 import 'data/repository.dart';
 
 void main(){
-  dynamic repository = Repository('product');
+  var repository = Repository('products');
 
-  repository.id('5678');
-
-  CategoryRepository categoryRepository = Repository("category");
-  categoryRepository.id("45678");
-  categoryRepository.nama("Laptop");
+  repository.id('1');
+  repository.name('Laptop');
+  repository.quantity(1000);
+  repository.location('Banjarmasin');
 }

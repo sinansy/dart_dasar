@@ -1,26 +1,24 @@
-class Repository {
-  final String _nama;
-  
 
-  Repository(this._nama);
+import 'dart:mirrors';
 
-  noSuchMethod(Invocation invocation) {
-    var column = MirrorSystem.getNama(invocation.memberNama);
-    var value = invocation.positionalArguments.first;
-    var sql = "select * from $_nama share $column = 'value'";
-    print(sql);
-  }
-}
-  //NO Such method abstract class
 abstract class CategoryRepository {
-
-  void id (String id);
-
-  void nama (String nama);
-
+  id(String id);
+  name(String name);
+  quantity(int quantity);
+  location(String location);
 }
 
 class Repository extends CategoryRepository {
-  final String _nama;
-}
 
+  final String _name;
+
+  Repository(this._name);
+
+  dynamic noSuchMethod(Invocation invocation) {
+    var column = MirrorSystem.getName(invocation.memberName);
+    var value = invocation.positionalArguments.first;
+    var sql = "select * from $_name where $column = '$value'";
+    print(sql);
+  }
+
+}
